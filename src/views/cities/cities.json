@@ -1,0 +1,148 @@
+[
+  {
+    "title": "Africa",
+    "nodes": [
+      {
+        "title": "Egypt",
+        "nodes": [
+          {
+            "title": "Cairo",
+            "image": "cairo.jpg",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Flickr_-_HuTect_ShOts_-_Citadel_of_Salah_El.Din_and_Masjid_Muhammad_Ali_%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D9%88%D9%85%D8%B3%D8%AC%D8%AF_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A_-_Cairo_-_Egypt_-_17_04_2010_(4).jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "America",
+    "nodes": [
+      {
+        "title": "USA",
+        "nodes": [
+          {
+            "title": "New York",
+            "nodes": [
+              {
+                "title": "New York",
+                "image": "new_york.jpg",
+                "imageUrl": "https://www.burgessyachts.com/media/adminforms/locations/n/e/new_york_1.jpg"
+              }
+            ]
+          }
+
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Asia",
+    "nodes": [
+      {
+        "title": "Israel",
+        "nodes": [
+          {
+            "title": "Jerusalem",
+            "image": "jerusalem.jpg",
+            "imageUrl": "http://allworldtowns.com/data_images/countries/jerusalem/jerusalem-04.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Europe",
+    "nodes": [
+      {
+        "title": "Netherlands",
+        "nodes": [
+          {
+            "title": "Amsterdam",
+            "image": "amsterdam.jpg",
+            "imageUrl": "http://www.telegraph.co.uk/incoming/article127067.ece/ALTERNATES/w620/amsterdam.jpg"
+          },
+          {
+            "title": "The Hague",
+            "image": "The_Hague.jpg",
+            "imageUrl": "http://travelaway.me/wp-content/uploads/2012/09/The-Hague.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "node1",
+    "nodes": [
+      {
+        "title": "node1.1",
+        "nodes": [
+          {
+            "title": "node1.1.1"
+          },
+          {
+            "title": "node1.1.2"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "node1.2",
+        "nodes": [
+          {
+            "id": 121,
+            "title": "node1.2.1"
+          },
+          {
+            "id": 122,
+            "title": "node1.2.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "node2",
+    "nodrop": true,
+    "nodes": [
+      {
+        "id": 21,
+        "title": "node2.1",
+        "nodes": [
+          {
+            "id": 211,
+            "title": "node2.1.1"
+          },
+          {
+            "id": 212,
+            "title": "node2.1.2"
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "title": "node2.2",
+        "nodes": [
+          {
+            "id": 221,
+            "title": "node2.2.1"
+          },
+          {
+            "id": 222,
+            "title": "node2.2.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "node3",
+    "nodes": [
+      {
+        "id": 31,
+        "title": "node3.1"
+      }
+    ]
+  }
+]

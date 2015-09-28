@@ -1,0 +1,204 @@
+@import '../node_modules/bootstrap/less/bootstrap';
+
+body {
+  font-size: large;
+  width: 100%;
+  height: 100%;
+  display: table;
+  margin: 0 auto;
+  table-layout: fixed;
+}
+
+ui-view, [ui-view] {
+  width: 100%;
+
+  &.main-view {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    a {
+      position: relative;
+    }
+  }
+}
+
+[ui-view="header"] {
+  position: absolute;
+  height: 60px;
+  z-index: 10;
+
+  .demo-header {
+    height: 100%;
+    padding: 12px;
+    line-height: 36px;
+
+    &.basic-header {
+      background: darkslateblue;
+      color: white;
+
+      a {
+        color: #fc8c84;
+
+        &:hover {
+          color: #fcc5b9;
+        }
+      }
+
+      input {
+        width: 200px;
+      }
+    }
+
+    &.signed-in-header {
+      background: #46b8da;
+      color: #261a3b;
+    }
+
+    .header-link {
+      float: right;
+      padding: 0 10px;
+    }
+  }
+}
+
+
+[ui-view="content"] {
+  height: calc(~"100% - 60px");
+  top: 60px;
+  position: absolute;
+  overflow: auto;
+  display: flex;
+
+  .auth-page {
+    flex-grow: 1;
+    background: deepskyblue;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+
+    .auth-title {
+      font-size: large;
+    }
+
+    .auth-page-form {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+
+      a {
+        position: relative;
+      }
+    }
+
+  }
+
+  .about-page {
+    padding: 15px;
+    padding-bottom: 50px;
+
+    .lorem-iframe {
+      width: 100%;
+      height: 500px;
+    }
+  }
+}
+
+.auth-box {
+  width: 400px;
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+.auth-flex {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.sign-in-box {
+  height: 400px;
+  background: darkslateblue;
+  color: white;
+
+  a {
+    color: white;
+    bottom: -85px;
+
+    &:visited {
+      color: #fc8c84;
+    }
+
+    &:hover {
+      color: #fcc5b9;
+    }
+  }
+}
+
+.sign-up-box {
+  height: 400px;
+  background: #8b2a75;
+  color: white;
+
+  a {
+    color: white;
+    bottom: -25px;
+
+    &:visited {
+      color: #fc8c84;
+    }
+
+    &:hover {
+      color: #fcc5b9;
+    }
+  }
+}
+
+
+.help-box {
+  padding: 10px;
+  background-color: #ff959f;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  left: calc(~"100% - 100px");
+}
+
+
+
+
+
+.form-of-art-abstract {
+  margin-bottom: 15px;
+  padding: 20px 20px 5px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.demo-container {
+  padding: 20px;
+}
+
+.session-title {
+  padding: 15px;
+}
+
+
+td, th {
+  border: solid 1px black;
+  width: 35px;
+  height: 35px;
+  text-align: center;;
+}
+
+
+
