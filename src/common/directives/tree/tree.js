@@ -18,6 +18,8 @@ function sjTree () {
 }
 
 function sjTreeController ($state) {
+  this.color = $state.params.color;
+
   this.showContent = (content) => {
     this.content = content;
   };
@@ -75,13 +77,14 @@ sjTreeMember.$inject = ['$compile'];
 
 
 function sjTreeMemberController ($stateParams, $scope) {
-  this.path = (this.path ? this.path + '/' : '') + this.member.title;
-  if ($stateParams.treePath.indexOf(this.path) === 0) {
+  this.path = (this.path ? this.path : '')  + '/' + this.member.title;
+
+  if ($stateParams.treePath && $stateParams.treePath.indexOf(this.path) === 0) {
     this.nodeOpen = true;
   }
 
   this.setPath = () => {
-    if ($stateParams.treePath.indexOf(this.path) === 0) {
+    if ($stateParams.treePath && $stateParams.treePath.indexOf(this.path) === 0) {
       $scope.showContent(this.member)
     }
   };

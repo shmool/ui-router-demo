@@ -2,17 +2,20 @@
     <span>Hello {{ header.username }}</span>
     <ul>
       <li>
-        <a class="header-link" ui-sref="cities">Cities</a>
+        <a class="header-link" ui-sref="sign_in">Sign out</a>
+      </li>
+      
+      <li>
+        <a class="header-link" ui-sref="cities">Postcards</a>
       </li>
 
       <li>
-        <a class="header-link" href="" ng-click="header.hello()">Hello</a>
-        </li>
+        <a class="header-link" ui-sref="message">Message</a>
+      </li>
+      
       <li>
-        <a class="header-link" ui-sref="sign_in">Sign out</a>
-        </li>
-      <li>
-        <a class="header-link" href="" ng-click="header.help()">Help</a>
-        </li>
+        <a class="header-link" ui-sref="picture_frame">Frame</a>
+      </li>
+      
     </ul>
 </div>

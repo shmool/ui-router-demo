@@ -3,15 +3,18 @@ import uiRouter    from 'angular-ui-router';
 
 logErrors.$inject = ['$rootScope'];
 routingRules.$inject = ['$rootScope', '$state', 'UserService'];
-registerStates.$inject = ['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider'];
+registerStates.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export function logErrors ($rootScope) {
   $rootScope.$on("$stateChangeError", console.log.bind(console));
 }
 
 export function routingRules ($rootScope, $state, UserService) {
+
   $rootScope.$on('$stateChangeStart', function (event, toState) {
+
     if (!toState.data || !angular.isFunction(toState.data.rule)) return;
+
     var result = toState.data.rule(UserService.getUser());
 
     if (result && result.toState) {
@@ -21,21 +24,10 @@ export function routingRules ($rootScope, $state, UserService) {
   });
 }
 
-export function registerStates ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
-  $urlMatcherFactoryProvider.type('pathParam', {
-    encode: function (item) {
-      return item;
-    },
-    decode: function (item) {
-      return item;
-    },
-    is: function (item) {
-      return true;
-    }
-  });
+export function registerStates ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider
-    .otherwise('/about/1')
+    .otherwise('/store')
     .when('/home', '/home/index');
 
   $stateProvider
@@ -49,8 +41,7 @@ export function registerStates ($stateProvider, $urlRouterProvider, $urlMatcherF
         },
         content: {
           templateUrl: 'views/auth/auth.html'
-        },
-        help: {}
+        }
       },
       abstract: true
     })
@@ -65,19 +56,6 @@ export function registerStates ($stateProvider, $urlRouterProvider, $urlMatcherF
       parent: 'main',
       templateUrl: 'views/auth/sign_up.html'
     })
-    .state('auth_help', {
-      parent: 'main',
-      views: {
-        'help@': {  // 'help' is not a view of the parent, so it must have absolute notation. can/should I use ^ ??
-          templateUrl: 'partials/help/help.html',
-          controller: 'HelpController',
-          controllerAs: 'help',
-          resolve: {
-            helpText: function () {return 'Please sign in, my friend'}
-          }
-        }
-      }
-    })
     .state('signed_in', {
       url: '/',
       views: {
@@ -90,95 +68,62 @@ export function registerStates ($stateProvider, $urlRouterProvider, $urlMatcherF
           template: '<ui-view autoscroll></ui-view>'
         }
       },
-      params: {
-        username: 'anonymous user'
-      },
       resolve: {
-        username: ['$stateParams', function ($stateParams) {
-          return $stateParams.username;
+        username: ['UserService', function (UserService) {
+          return UserService.user.name;
         }]
       },
       data: {
         rule: function (user) {
-          return user.name ? null : {toState: 'sign_in'};
+          return user && user.name ? null : {toState: 'sign_in'};
         }
       },
       abstract: true
     })
-    .state('about', {
-      url: 'about/:aboutId',
+    .state('admin', {
       parent: 'signed_in',
+      url: 'admin',
+      template: '<h1>Hello Admin!</h1>',
+      data: {
+        rule: function (user) {
+          return user && user.isAdmin ? null : {toState: 'store'};
+        }
+      }
+    })
+    .state('store', {
+      url: 'store?color',
+      parent: 'signed_in',
+      views: {
+        'content@': {
+          templateUrl: 'views/store/store.html',
+          controller: 'StoreController as store'
+        }
+      }
+    })
+    .state('cities', {
+      url: '/cities{treePath:any}',
+      parent: 'store',
+      templateUrl: 'views/cities/cities.html',
+      controller: 'CitiesController as cities'
+    })
+    .state('picture_frame', {
+      url: '/picture-frame',
+      parent: 'store',
+      templateUrl: 'views/store/products/picture_frame.html',
+      controller: 'PictureFrameController as pictureFrame'
+    })
+    .state('about', {
+      url: '/message/:aboutId',
+      parent: 'store',
       templateUrl: 'views/about/about.html',
       controller: 'AboutController as about',
       params: {
         aboutId: '1'
       },
-
       resolve: {
-        fakeData: ['$http', '$stateParams', function ($http, $stateParams) {
-          // this is bad practice, better have a service to perform the http request
-          //return $http.get('https://api.github.com/users/mralexgray/repos?page='+ $stateParams.id + '&per_page=20');
-          return {data: [{name: 'blabla'}]}
+        fakeData: ['DataService', '$stateParams', function (DataService, $stateParams) {
+          return DataService.getData($stateParams);
         }]
-      }
-    })
-    .state('cities', {
-      url: 'cities/{treePath:pathParam}',
-      parent: 'signed_in',
-      templateUrl: 'views/cities/cities.html',
-      controller: 'CitiesController as cities'
-    })
-    .state('signed_in_help', {
-      parent: 'signed_in',
-      views: {
-        'help@': {
-          templateUrl: 'partials/help/help.html',
-          controller: 'HelpController',
-          controllerAs: 'help',
-          resolve: {
-            helpText: function () {return 'You are signed in, my friend'}
-          }
-        }
-      }
-    })
-    .state('step_help', {
-      parent: 'step',
-      views: {
-        'help@': {
-          templateUrl: 'partials/help/help.html',
-          controller: 'HelpController',
-          controllerAs: 'help',
-          resolve: {
-            helpText: function ($stateParams) {return 'I\'ll help you with steps, my friend. Your\'re in step ' + $stateParams.step }
-          }
-        }
-      },
-      data: {
-        helpT: 'helping u out'
-      }
-    })
-    .state('session', {
-      parent: 'signed_in',
-      url: '/session/:sessionName',
-      templateUrl: 'tabs/tabs.html',
-      controller: 'tabsController',
-      controllerAs: 'tabs',
-      params: {
-        sessionName: 'basicForm'
-      },
-      resolve: {
-        sessionName: ($stateParams) => $stateParams.sessionName
-      },
-      abstract: true
-    })
-    .state('step', {
-      url: '/:step',
-      parent: 'session',
-      templateUrl: ($stateParams) => $stateParams.sessionName + '/steps/step' + $stateParams.step + '.html',
-      controllerProvider: ($stateParams) => $stateParams.sessionName + 'Controller',
-      controllerAs: 'demo',
-      params: {
-        step: '0'
       }
     })
 
