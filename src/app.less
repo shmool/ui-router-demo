@@ -119,16 +119,22 @@ ui-view, [ui-view] {
     background-size: 100% auto;
     min-height: 39em;
     .image-wrapper {
-      // margin: 72px 393px;
+      -webkit-transition: -webkit-transform .15s linear;
+      &:hover {
+        -webkit-transform: scale(1.25) rotate(5deg);;
+        -moz-transform: scale(1.25) rotate(5deg);;
+        position: relative;
+        z-index: 5;
+      }
       background-color: white;
       display: block;
-      margin-top: 4em;
+      margin: 2.5em;
       margin-left: auto;
       margin-right: auto;
       width: 40%;
       vertical-align: middle;
-      -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
-      -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+      -moz-box-shadow: 0 3px 6px rgba(0,0,0,1.25);
+      -webkit-box-shadow: 0 3px 6px rgba(0,0,0,1.25);
       padding: 10px 10px 15px;
       text-align: center;
       &:after {
