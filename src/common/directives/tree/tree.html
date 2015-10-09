@@ -3,8 +3,9 @@
         <sj-tree-collection collection="tree.collection">
         </sj-tree-collection>
     </div>
-    <div class="col-sm-8">
-        <h1>{{tree.content.title}}</h1>
-        <img ng-src="{{ tree.content.imageUrl }}" style="width: 100%">
+    <div class="col-sm-8 city-content">
+        <h1 class='image-wrapper' title={{tree.content.title}}>
+          <img class="city-image" ng-src="{{ tree.content.imageUrl }}" style="width: 100%">
+        </h1>
     </div>
 </div>

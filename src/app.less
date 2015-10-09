@@ -51,8 +51,46 @@ ui-view, [ui-view] {
     }
 
     &.signed-in-header {
-      background: #46b8da;
+      background: #0099cc;
       color: #261a3b;
+      span {
+        color: white;
+        font-family: 'Pacifico', cursive;
+      }
+      ul {
+        display: block;
+        float: right;
+        li {
+          display: inline;
+          list-style: none;
+          &:last-child:after {
+            content: "";
+          }
+          &:after {
+              content: "\2022";
+              color: rgb(35, 125, 172);
+              float: right;
+              padding-top: 1px;
+              font-size: 20px;
+          }
+          a {
+            color: white;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0 8px 0 10px;
+            outline: none;
+            text-decoration: none;
+            -webkit-font-smoothing: antialiased;
+            white-space: nowrap;
+            &:hover {
+              color: #056495;
+              text-shadow: none;
+            }
+          }
+
+        }
+      }
     }
 
     .header-link {
@@ -69,7 +107,32 @@ ui-view, [ui-view] {
   position: absolute;
   overflow: auto;
   display: flex;
-
+  ul li {
+     font-family: 'PT Sans';
+    -webkit-font-smoothing: antialiased;
+    font-size: 24px;
+  }
+  .col-sm-4 {
+    width: 30%;
+  }
+  .city-content {
+    .image-wrapper {
+      background-color: rgba(245, 240, 240, 0.49);
+      width: 80%;
+      -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+      -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+      padding: 10px 10px 15px;
+      text-align: center;
+      &:after {
+        font-family: "Marker Felt";
+        vertical-align: middle;
+        content: attr(title);
+      }
+      .city-image {
+        margin-bottom: 20px;
+      }
+    }
+  }
   .auth-page {
     flex-grow: 1;
     background: deepskyblue;
