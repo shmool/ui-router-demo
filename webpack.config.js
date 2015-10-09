@@ -17,7 +17,7 @@ module.exports = {
       { test: /\.less$/, loader: "style!css!less"},
       { test: /\.css$/, loader: "style!css"},
 
-      // support Jsob importing
+      // support Json importing
       { test: /\.json$/, loader: "json"},
 
       // load raw html files
