@@ -25,6 +25,7 @@ module.exports = {
 
       // load fonts and images
       { test: /\.(ttf|eot|svg|otf)$/, loader: "file" },
+      { test: /\.(jpg|png)$/, loader: "url-loader?limit=8192" },
       { test: /\.woff(2)?$/, loader: "url?limit=10000&minetype=application/font-woff"}
     ]
   },

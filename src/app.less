@@ -16,7 +16,6 @@ ui-view, [ui-view] {
     display: flex;
     justify-content: center;
     text-align: center;
-
     a {
       position: relative;
     }
@@ -116,16 +115,24 @@ ui-view, [ui-view] {
     width: 30%;
   }
   .city-content {
+    background-image: url('./assets/images/corkboard2.jpg');
+    background-size: 100% auto;
+    min-height: 39em;
     .image-wrapper {
-      background-color: rgba(245, 240, 240, 0.49);
-      width: 80%;
+      // margin: 72px 393px;
+      background-color: white;
+      display: block;
+      margin-top: 4em;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+      vertical-align: middle;
       -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
       -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
       padding: 10px 10px 15px;
       text-align: center;
       &:after {
         font-family: "Marker Felt";
-        vertical-align: middle;
         content: attr(title);
       }
       .city-image {

@@ -1,5 +1,4 @@
-import cities from './cities.json'
-
+import cities from './cities.json';
 export default class CitiesController {
 
   constructor ($state) {
