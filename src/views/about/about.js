@@ -2,10 +2,9 @@ export default class AboutController {
 
   constructor ($state, fakeData) {
 
-    this.stt = $state
     this.fakeData = fakeData.data;
     this.id = parseInt($state.params.aboutId);
-    this.title = 'About ' + this.id;
+    this.title = 'Your Personal Message - version ' + this.id;
 
   }
 

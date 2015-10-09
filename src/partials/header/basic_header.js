@@ -6,9 +6,10 @@ export default class BasicHeaderController {
       alert('hello!');
     };
 
-    this.signIn = function () {
-      $state.go('about');
-      UserService.signIn('bla')
+    this.signIn = function (username) {
+      UserService.signIn(username).then(function (result) {
+        $state.go('store', {id: '1', username: result.name});
+      })
     };
   }
 

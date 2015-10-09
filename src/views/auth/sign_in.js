@@ -7,11 +7,17 @@ export default class SignInController {
 
     this.signIn = function (username) {
       UserService.signIn(username).then(function (result) {
-        $state.go('about', {id: '1', username: result.name});  // currently can't go to abstract state
+        $state.go('store', {username: result.name});
       })
     };
   }
 
+}
+
+function signInCtrl($state) {
+  this.signin = function () {
+    $state.go
+  }
 }
 
 SignInController.$inject = ['$state', 'UserService'];

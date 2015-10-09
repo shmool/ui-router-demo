@@ -2,13 +2,12 @@ import cities from './cities.json'
 
 export default class CitiesController {
 
-  constructor () {
+  constructor ($state) {
 
     this.treeData = cities;
-
   }
 
 
 }
 
-CitiesController.$inject = [];
+CitiesController.$inject = ['$stateParams'];

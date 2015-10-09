@@ -9,9 +9,12 @@ import HelpController from 'partials/help/help.js'
 import SignInController from 'views/auth/sign_in.js'
 import AboutController from 'views/about/about.js'
 import CitiesController from 'views/cities/cities.js'
+import StoreController from 'views/store/store.js'
+import PictureFrameController from 'views/store/products/picture_frame.js'
 import BasicHeaderController from 'partials/header/basic_header.js'
 import SignedInHeaderController from 'partials/header/signed_in_header.js'
 import { UserService } from 'common/services/user_service';
+import DataService    from 'common/services/data_service.js';
 import { registerStates, logErrors, routingRules } from 'routes.js'
 
 export default angular.module('uiRouterDemo', [
@@ -24,12 +27,15 @@ export default angular.module('uiRouterDemo', [
   .run(routingRules)
   .config(registerStates)
   .service('UserService', UserService)
+  .service('DataService', DataService)
   .controller('tabsController', TabsController)
   .controller('basicForm', basicForm)
   .controller('HelpController', HelpController)
   .controller('SignInController', SignInController)
   .controller('AboutController', AboutController)
   .controller('CitiesController', CitiesController)
+  .controller('StoreController', StoreController)
+  .controller('PictureFrameController', PictureFrameController)
   .controller('BasicHeaderController', BasicHeaderController)
   .controller('SignedInHeaderController', SignedInHeaderController)
 

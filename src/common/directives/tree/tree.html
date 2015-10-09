@@ -5,6 +5,7 @@
     </div>
     <div class="col-sm-8">
         <h1>{{tree.content.title}}</h1>
-        <img ng-src="{{ tree.content.imageUrl }}" style="width: 100%">
+        <img ng-src="{{ tree.content.imageUrl }}" style="width: 100%"
+             ng-style="tree.content.imageUrl && tree.color ? {border: '20px solid ' + tree.color} : null">
     </div>
 </div>
