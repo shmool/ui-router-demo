@@ -45,6 +45,7 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
       },
       abstract: true
     })
+
     .state('sign_in', {
       url: 'signin',
       parent: 'main',
@@ -56,6 +57,7 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
       parent: 'main',
       templateUrl: 'views/auth/sign_up.html'
     })
+
     .state('signed_in', {
       url: '/',
       views: {
@@ -80,16 +82,7 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
       },
       abstract: true
     })
-    .state('admin', {
-      parent: 'signed_in',
-      url: 'admin',
-      template: '<h1>Hello Admin!</h1>',
-      data: {
-        rule: function (user) {
-          return user && user.isAdmin ? null : {toState: 'store'};
-        }
-      }
-    })
+
     .state('store', {
       url: 'store?color',
       parent: 'signed_in',
@@ -100,18 +93,7 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('cities', {
-      url: '/cities{treePath:any}',
-      parent: 'store',
-      templateUrl: 'views/cities/cities.html',
-      controller: 'CitiesController as cities'
-    })
-    .state('picture_frame', {
-      url: '/picture-frame',
-      parent: 'store',
-      templateUrl: 'views/store/products/picture_frame.html',
-      controller: 'PictureFrameController as pictureFrame'
-    })
+
     .state('about', {
       url: '/message/:aboutId',
       parent: 'store',
@@ -126,6 +108,32 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
         }]
       }
     })
+
+    .state('admin', {
+      parent: 'signed_in',
+      url: 'admin',
+      template: '<h1>Hello Admin!</h1>',
+      data: {
+        rule: function (user) {
+          return user && user.isAdmin ? null : {toState: 'store'};
+        }
+      }
+    })
+
+    .state('cities', {
+      url: '/cities{treePath:any}',
+      parent: 'store',
+      templateUrl: 'views/cities/cities.html',
+      controller: 'CitiesController as cities'
+    })
+
+    .state('picture_frame', {
+      url: '/picture-frame',
+      parent: 'store',
+      templateUrl: 'views/store/products/picture_frame.html',
+      controller: 'PictureFrameController as pictureFrame'
+    })
+
 
 }
 
