@@ -6,7 +6,7 @@ routingRules.$inject = ['$rootScope', '$state', 'UserService'];
 registerStates.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export function logErrors ($rootScope) {
-  $rootScope.$on("$stateChangeError", console.log.bind(console));
+  $rootScope.$on('$stateChangeError', console.log.bind(console));
 }
 
 export function routingRules ($rootScope, $state, UserService) {

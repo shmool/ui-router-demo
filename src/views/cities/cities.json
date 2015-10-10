@@ -1,14 +1,34 @@
 [
   {
-    "title": "Africa",
+    "title": "Europe",
     "nodes": [
       {
-        "title": "Egypt",
+        "title": "Netherlands",
         "nodes": [
           {
-            "title": "Cairo",
-            "image": "cairo.jpg",
-            "imageUrl": "../../assets/images/cario.jpg"
+            "title": "Amsterdam",
+            "image": "amsterdam.jpg",
+            "imageUrl": "../../assets/images/amsterdam.jpg"
+          },
+          {
+            "title": "The Hague",
+            "image": "The_Hague.jpg",
+            "imageUrl": "../../assets/images/The-Hague.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Asia",
+    "nodes": [
+      {
+        "title": "Israel",
+        "nodes": [
+          {
+            "title": "Jerusalem",
+            "image": "jerusalem.jpg",
+            "imageUrl": "../../assets/images/israel.jpg"
           }
         ]
       }
@@ -30,41 +50,20 @@
               }
             ]
           }
-
         ]
       }
     ]
   },
   {
-    "title": "Asia",
+    "title": "Africa",
     "nodes": [
       {
-        "title": "Israel",
+        "title": "Egypt",
         "nodes": [
           {
-            "title": "Jerusalem",
-            "image": "jerusalem.jpg",
-            "imageUrl": "../../assets/images/israel.jpg"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Europe",
-    "nodes": [
-      {
-        "title": "Netherlands",
-        "nodes": [
-          {
-            "title": "Amsterdam",
-            "image": "amsterdam.jpg",
-            "imageUrl": "../../assets/images/amsterdam.jpg"
-          },
-          {
-            "title": "The Hague",
-            "image": "The_Hague.jpg",
-            "imageUrl": "../../assets/images/The-Hague.jpg"
+            "title": "Cairo",
+            "image": "cairo.jpg",
+            "imageUrl": "../../assets/images/cario.jpg"
           }
         ]
       }

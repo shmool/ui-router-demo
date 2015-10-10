@@ -1,9 +1,6 @@
 export default class SignInController {
 
   constructor ($state, UserService) {
-    this.hello = function () {
-      alert('hello!');
-    };
 
     this.signIn = function (username) {
       UserService.signIn(username).then(function (result) {
@@ -12,12 +9,6 @@ export default class SignInController {
     };
   }
 
-}
-
-function signInCtrl($state) {
-  this.signin = function () {
-    $state.go
-  }
 }
 
 SignInController.$inject = ['$state', 'UserService'];

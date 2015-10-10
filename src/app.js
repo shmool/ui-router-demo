@@ -26,6 +26,8 @@ export default angular.module('uiRouterDemo', [
   .run(logErrors)
   .run(routingRules)
   .config(registerStates)
+
+
   .service('UserService', UserService)
   .service('DataService', DataService)
   .controller('tabsController', TabsController)
