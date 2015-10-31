@@ -1,21 +1,22 @@
 <div class="demo-header signed-in-header">
-    <span>Hello {{ header.username }}</span>
-    <ul>
-      <li>
-        <a class="header-link" ui-sref="sign_in">Sign out</a>
-      </li>
-      
-      <li>
-        <a class="header-link" ui-sref="about">Message</a>
-      </li>
+  <span class="header-logo">UI-Router Demo</span>
+  <span class="header-hello">Hello {{ header.username }}!</span>
+  <ul>
+    <li>
+      <a class="header-link" href="" ng-click="header.signOut()">Sign out</a>
+    </li>
 
-      <li>
-        <a class="header-link" ui-sref="picture_frame">Frame</a>
-      </li>
-      
-      <li>
-        <a class="header-link" ui-sref="cities">Postcards</a>
-      </li>
-      
-    </ul>
+    <li>
+      <a class="header-link" ui-sref="message">Message</a>
+    </li>
+
+    <li>
+      <a class="header-link" ui-sref="picture_frame">Frame</a>
+    </li>
+
+    <li>
+      <a class="header-link" ui-sref="postcards">Postcards</a>
+    </li>
+
+  </ul>
 </div>

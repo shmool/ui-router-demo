@@ -2,8 +2,6 @@ export default angular.module('sj.tree', [])
   .directive('sjTree', sjTree)
   .directive('sjTreeCollection', sjTreeCollection)
   .directive('sjTreeMember', sjTreeMember)
-  .controller('sjTreeController', sjTreeController)
-  .controller('sjTreeMemberController', sjTreeMemberController)
 
 function sjTree () {
   return {
@@ -11,7 +9,7 @@ function sjTree () {
       collection: '='
     },
     templateUrl: 'common/directives/tree/tree.html',
-    controller: 'sjTreeController',
+    controller: sjTreeController,
     controllerAs: 'tree',
     bindToController: true
   }
@@ -52,7 +50,7 @@ function sjTreeMember ($compile) {
     template: '<li ng-click="treeMember.toggleNodeOpen()">{{treeMember.member.title}}</li>',
 
     require: '^sjTree',
-    controller: 'sjTreeMemberController',
+    controller: sjTreeMemberController,
     controllerAs: 'treeMember',
     bindToController: true,
 

@@ -52,13 +52,21 @@ ui-view, [ui-view] {
     &.signed-in-header {
       background: #0099cc;
       color: #261a3b;
-      span {
+      display: flex;
+      justify-content: space-between;
+
+      .header-logo {
         color: white;
         font-size: 25px;
         padding-left: 3px;
         -webkit-font-smoothing: antialiased;
         font-family: 'Pacifico', cursive;
       }
+
+      .header-hello {
+        color: white;
+      }
+
       ul {
         display: block;
         float: right;
@@ -109,29 +117,37 @@ ui-view, [ui-view] {
   position: absolute;
   overflow: auto;
   display: flex;
+
   ul li {
      font-family: 'PT Sans';
     -webkit-font-smoothing: antialiased;
     font-size: 24px;
   }
+
   .col-sm-4 {
     width: 30%;
   }
+
   .store-container {
     padding-left: 10px;
+
     h1 {
       padding-left: 10px;
     }
+
     .color-form {
       padding-left: 10px;
     }
+
     .btn-info {
       background-color: #0099cc;
+
       &:hover {
         color: #056495;
         text-shadow: none;
       }
     }
+
     .product-list-container {
       padding-left: 5px;
       button {
@@ -150,12 +166,15 @@ ui-view, [ui-view] {
       }
     }
   }
+
   .city-content {
     background-image: url('assets/images/corkboard2.jpg');
     background-size: 75% auto;
     min-height: 39em;
+
     .image-wrapper {
       -webkit-transition: -webkit-transform .15s linear;
+
       &:hover {
         -webkit-transform: scale(1.25) rotate(5deg);;
         -moz-transform: scale(1.25) rotate(5deg);;
@@ -173,15 +192,18 @@ ui-view, [ui-view] {
       -webkit-box-shadow: 0 3px 6px rgba(0,0,0,1.25);
       padding: 10px 10px 15px;
       text-align: center;
+
       &:after {
         font-family: "Marker Felt";
         content: attr(title);
       }
+
       .city-image {
         margin-bottom: 20px;
       }
     }
   }
+
   .auth-page {
     flex-grow: 1;
     background: deepskyblue;
@@ -207,7 +229,7 @@ ui-view, [ui-view] {
 
   }
 
-  .about-page {
+  .message-page {
     padding: 15px;
     padding-bottom: 50px;
 
@@ -222,6 +244,9 @@ ui-view, [ui-view] {
   width: 400px;
   border: 1px solid gray;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .auth-flex {
@@ -244,7 +269,6 @@ ui-view, [ui-view] {
 
   a {
     color: white;
-    bottom: -85px;
 
     &:visited {
       color: #fc8c84;
@@ -263,7 +287,6 @@ ui-view, [ui-view] {
 
   a {
     color: white;
-    bottom: -25px;
 
     &:visited {
       color: #fc8c84;
@@ -272,6 +295,11 @@ ui-view, [ui-view] {
     &:hover {
       color: #fcc5b9;
     }
+  }
+  
+  .signup-error {
+    height: 30px;
+    color: yellow;
   }
 }
 
@@ -284,10 +312,6 @@ ui-view, [ui-view] {
   position: relative;
   left: calc(~"100% - 100px");
 }
-
-
-
-
 
 .form-of-art-abstract {
   margin-bottom: 15px;
@@ -331,4 +355,8 @@ td, th {
 
     }
   }
+}
+
+sj-tree-member li {
+  cursor: pointer;
 }

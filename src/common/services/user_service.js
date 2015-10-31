@@ -1,13 +1,13 @@
-export class UserService {
+export default class UserService {
 
   constructor($q) {
 
-    this.user = {name: 'DevFest NL'};
+    this.user = angular.fromJson(localStorage.user) || null;
 
     this.signIn = function (name) {
-      this.user = {name: name}
+      this.user = { name: name };
+      localStorage.user = angular.toJson(this.user);
       if (name === 'Admin') {
-        console.log('adm')
         this.user.isAdmin = true;
       }
       return $q.when(this.user);
@@ -16,7 +16,7 @@ export class UserService {
 
 
   signOut () {
-    this.user.name = null;
+    this.user.name = localStorage.user = null;
   };
 
   getUser () {

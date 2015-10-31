@@ -9,7 +9,10 @@ export default class StoreController {
     };
 
     this.saveColor = () =>
-    $state.go('.', $state.params, {reload: true, notify: true});
+    $state.go('.', $state.params, {
+      reload: true,
+      notify: true
+    });
   }
 
 }

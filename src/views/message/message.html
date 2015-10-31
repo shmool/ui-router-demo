@@ -1,0 +1,13 @@
+<div class="message-page">
+
+  <h1>{{message.title}}</h1>
+
+  <span ng-repeat="item in message.fakeData">{{item.name}} </span>
+
+  <p>
+    <a ui-sref="message({messageId: message.prev()})"><< Previous version</a> |
+    <a ui-sref="message({messageId: message.next()})">Next version >></a>
+  </p>
+
+  <br/>
+</div>

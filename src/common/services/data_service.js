@@ -7,15 +7,15 @@ export default class DataService {
         method: 'GET',
         url: 'https://api.github.com/users/mralexgray/repos',
         params: {
-          page: $stateParams.aboutId,
+          page: $stateParams.messageId,
           per_page: 20
         }
       }).catch(function () {
         return {data: [
           {name: 'This is fake data'},
-          {name: 'Generated in the Data Service'},
-          {name: 'Because there was an error with the http request to Github'},
-          {name: 'The state param aboutId is: ' + $stateParams.aboutId},
+          {name: 'generated in the Data Service'},
+          {name: 'because there was an error with the http request to Github.'},
+          {name: 'The state param messageId is: ' + $stateParams.messageId},
         ]}
       });
     }

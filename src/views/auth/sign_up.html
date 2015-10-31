@@ -1,15 +1,18 @@
 <div class="auth-box sign-up-box">
-    <h2>Sign Up</h2>
-    <div class="auth-flex">
-        <form ng-submit="auth.signIn(username)">
-            <br/>
-            <input class="form-control" ng-model="username" placeholder="username"><br/>
-            <input class="form-control" type="password" ng-model="password" placeholder="password"><br/>
-            <input class="form-control" type="password" ng-model="repeatPassword" placeholder="repeat password">
-            <br/>
-            <button class="btn btn-success">GO!</button>
-            <br/>
-        </form>
-    </div>
-            <a ui-sref="sign_in">Already a member? Sign in</a>
+  <h2>Sign Up</h2>
+
+  <div class="auth-flex">
+    <form ng-submit="signup.signUp()">
+      <fieldset>
+        <input class="form-control" ng-model="signup.username" placeholder="username"><br/>
+        <input class="form-control" type="password" ng-model="signup.password" placeholder="password"><br/>
+        <input class="form-control" type="password" ng-model="signup.repeatPassword" placeholder="repeat password">
+      </fieldset>
+
+      <p class="signup-error">{{ signup.error }}</p>
+
+      <button class="btn btn-success">GO!</button>
+    </form>
+  </div>
+  <a ui-sref="sign_in">Already a member? Sign in</a>
 </div>

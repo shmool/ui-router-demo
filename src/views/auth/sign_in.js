@@ -1,11 +1,14 @@
 export default class SignInController {
 
-  constructor ($state, UserService) {
+  constructor($state, UserService) {
 
-    this.signIn = function (username) {
-      UserService.signIn(username).then(function (result) {
-        $state.go('store', {username: result.name});
-      })
+    this.signIn = function () {
+      UserService.signIn(this.username)
+        .then(function (result) {
+          $state.go('store', {
+            username: result.name
+          });
+        })
     };
   }
 

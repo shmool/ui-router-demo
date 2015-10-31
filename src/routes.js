@@ -1,6 +1,14 @@
 import angular     from 'angular';
 import uiRouter    from 'angular-ui-router';
 
+import HelpController from 'partials/help/help.js'
+import MessageController from 'views/message/message.js'
+import PostcardsController from 'views/postcards/postcards.js'
+import StoreController from 'views/store/store.js'
+import PictureFrameController from 'views/store/products/picture_frame.js'
+import BasicHeaderController from 'partials/header/basic_header.js'
+import SignedInHeaderController from 'partials/header/signed_in_header.js'
+
 logErrors.$inject = ['$rootScope'];
 routingRules.$inject = ['$rootScope', '$state', 'UserService'];
 registerStates.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -27,8 +35,7 @@ export function routingRules ($rootScope, $state, UserService) {
 export function registerStates ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider
-    .otherwise('/store')
-    .when('/home', '/home/index');
+    .otherwise('/signin');
 
   $stateProvider
     .state('main', {
@@ -36,7 +43,7 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
       views: {
         header: {
           templateUrl: 'partials/header/basic_header.html',
-          controller: 'BasicHeaderController',
+          controller: BasicHeaderController,
           controllerAs: 'header'
         },
         content: {
@@ -46,24 +53,12 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
       abstract: true
     })
 
-    .state('sign_in', {
-      url: 'signin',
-      parent: 'main',
-      controller: 'SignInController as signin',
-      templateUrl: 'views/auth/sign_in.html'
-    })
-    .state('sign_up', {
-      url: 'signup',
-      parent: 'main',
-      templateUrl: 'views/auth/sign_up.html'
-    })
-
     .state('signed_in', {
       url: '/',
       views: {
         header: {
           templateUrl: 'partials/header/signed_in_header.html',
-          controller: 'SignedInHeaderController',
+          controller: SignedInHeaderController,
           controllerAs: 'header'
         },
         content: {
@@ -89,18 +84,20 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
       views: {
         'content@': {
           templateUrl: 'views/store/store.html',
-          controller: 'StoreController as store'
+          controller: StoreController,
+          controllerAs: 'store'
         }
       }
     })
 
-    .state('about', {
-      url: '/message/:aboutId',
+    .state('message', {
+      url: '/message/:messageId',
       parent: 'store',
-      templateUrl: 'views/about/about.html',
-      controller: 'AboutController as about',
+      templateUrl: 'views/message/message.html',
+      controller: MessageController,
+      controllerAs: 'message',
       params: {
-        aboutId: '1'
+        messageId: '1'
       },
       resolve: {
         fakeData: ['DataService', '$stateParams', function (DataService, $stateParams) {
@@ -120,20 +117,21 @@ export function registerStates ($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('cities', {
-      url: '/cities{treePath:any}',
+    .state('postcards', {
+      url: '/postcards{treePath:any}',
       parent: 'store',
-      templateUrl: 'views/cities/cities.html',
-      controller: 'CitiesController as cities'
+      templateUrl: 'views/postcards/postcards.html',
+      controller: PostcardsController,
+      controllerAs: 'postcards'
     })
 
     .state('picture_frame', {
       url: '/picture-frame',
       parent: 'store',
       templateUrl: 'views/store/products/picture_frame.html',
-      controller: 'PictureFrameController as pictureFrame'
+      controller: PictureFrameController,
+      controllerAs: 'pictureFrame'
     })
-
 
 }
 
